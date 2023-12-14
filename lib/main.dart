@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stacked/app/locator.dart';
-import 'package:flutter_application_stacked/models/todo.adapter.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_application_stacked/services/locator.dart';
+import 'package:flutter_application_stacked/ui/home/home_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
-  await Hive.initFlutter();
-  Hive.registerAdapter(TodoAdapter());
-  await Hive.openBox('todos');
-  
+
   setupLocator();
-  
+  setup();
+
   runApp(const MyApp());
 }
 
@@ -23,9 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Stacked App Test',
       theme: ThemeData.dark(useMaterial3: true),
-      home: const MyHomePage(title: 'Flutter Stacked Example'),
+      home: const HomeView(),
     );
   }
 }

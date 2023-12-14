@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_stacked/services/locator.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../app/locator.dart';
 import '../../models/todo.dart';
 import '../../services/todos.service.dart';
 
