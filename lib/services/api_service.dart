@@ -41,7 +41,7 @@ class ApiService {
     return usersList;
   }
 
-  Future<User> getUserByID(int userID) async {
+  Future<User> getUserByID(String userID) async {
     var url = Uri.parse('$endPoint/user/$userID');
 
     var response = await client.get(
