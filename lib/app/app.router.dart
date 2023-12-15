@@ -5,12 +5,14 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/foundation.dart' as _i7;
-import 'package:flutter/material.dart' as _i6;
+import 'package:flutter/foundation.dart' as _i8;
+import 'package:flutter/material.dart' as _i7;
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stacked/models/user.dart' as _i8;
+import 'package:flutter_application_stacked/models/user.dart' as _i9;
 import 'package:flutter_application_stacked/ui/views/home/home_view.dart'
     as _i2;
+import 'package:flutter_application_stacked/ui/views/post_details/post_details_view.dart'
+    as _i6;
 import 'package:flutter_application_stacked/ui/views/posts/posts_view.dart'
     as _i5;
 import 'package:flutter_application_stacked/ui/views/startup/startup_view.dart'
@@ -18,7 +20,7 @@ import 'package:flutter_application_stacked/ui/views/startup/startup_view.dart'
 import 'package:flutter_application_stacked/ui/views/user_details/user_details_view.dart'
     as _i4;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i9;
+import 'package:stacked_services/stacked_services.dart' as _i10;
 
 class Routes {
   static const homeView = '/home-view';
@@ -29,11 +31,14 @@ class Routes {
 
   static const postsView = '/posts-view';
 
+  static const postDetailsView = '/post-details-view';
+
   static const all = <String>{
     homeView,
     startupView,
     userDetailsView,
     postsView,
+    postDetailsView,
   };
 }
 
@@ -55,32 +60,42 @@ class StackedRouter extends _i1.RouterBase {
       Routes.postsView,
       page: _i5.PostsView,
     ),
+    _i1.RouteDef(
+      Routes.postDetailsView,
+      page: _i6.PostDetailsView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i6.MaterialPageRoute<dynamic>(
+      return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i6.MaterialPageRoute<dynamic>(
+      return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.UserDetailsView: (data) {
       final args = data.getArgs<UserDetailsViewArguments>(nullOk: false);
-      return _i6.MaterialPageRoute<dynamic>(
+      return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => _i4.UserDetailsView(
             key: args.key, user: args.user, userID: args.userID),
         settings: data,
       );
     },
     _i5.PostsView: (data) {
-      return _i6.MaterialPageRoute<dynamic>(
+      return _i7.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.PostsView(),
+        settings: data,
+      );
+    },
+    _i6.PostDetailsView: (data) {
+      return _i7.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i6.PostDetailsView(),
         settings: data,
       );
     },
@@ -100,9 +115,9 @@ class UserDetailsViewArguments {
     required this.userID,
   });
 
-  final _i7.Key? key;
+  final _i8.Key? key;
 
-  final _i8.User user;
+  final _i9.User user;
 
   final String userID;
 
@@ -123,7 +138,7 @@ class UserDetailsViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i9.NavigationService {
+extension NavigatorStateExtension on _i10.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -153,8 +168,8 @@ extension NavigatorStateExtension on _i9.NavigationService {
   }
 
   Future<dynamic> navigateToUserDetailsView({
-    _i7.Key? key,
-    required _i8.User user,
+    _i8.Key? key,
+    required _i9.User user,
     required String userID,
     int? routerId,
     bool preventDuplicates = true,
@@ -179,6 +194,20 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.postsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToPostDetailsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.postDetailsView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -214,8 +243,8 @@ extension NavigatorStateExtension on _i9.NavigationService {
   }
 
   Future<dynamic> replaceWithUserDetailsView({
-    _i7.Key? key,
-    required _i8.User user,
+    _i8.Key? key,
+    required _i9.User user,
     required String userID,
     int? routerId,
     bool preventDuplicates = true,
@@ -240,6 +269,20 @@ extension NavigatorStateExtension on _i9.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.postsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithPostDetailsView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.postDetailsView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

@@ -20,121 +20,119 @@ class HomeView extends StatelessWidget {
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    verticalSpaceSmall,
-                    const Text(
-                      'Hello, STACKED!',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                      ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  verticalSpaceSmall,
+                  const Text(
+                    'Hello, STACKED!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
                     ),
-                    verticalSpaceMedium,
-                    viewModel.isBusy
+                  ),
+                  verticalSpaceMedium,
+                  Expanded(
+                    child: viewModel.isBusy
                         ? const Center(child: CircularProgressIndicator())
                         : viewModel.data != null
-                            ? Expanded(
-                                child: ListView.separated(
-                                  itemCount: viewModel.data!.length,
-                                  separatorBuilder: (context, index) =>
-                                      const Divider(),
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) {
-                                    var item = viewModel.data![index];
-                                    return InkWell(
-                                      onTap: index == viewModel.setIndex
-                                          ? null
-                                          : () {
-                                              viewModel.getUserInfo(
-                                                  item.id, index);
-                                            },
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                height: 30,
-                                                width: 30,
-                                                child:
-                                                    Image.network(item.picture),
-                                              ),
-                                              const SizedBox(width: 20),
-                                              Expanded(
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "Name: ${item.firstName + ' ' + item.lastName}",
-                                                      style: const TextStyle(
-                                                        color: Colors.black,
-                                                      ),
+                            ? ListView.separated(
+                                itemCount: viewModel.data!.length,
+                                separatorBuilder: (context, index) =>
+                                    const Divider(),
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  var item = viewModel.data![index];
+                                  return InkWell(
+                                    onTap: index == viewModel.setIndex
+                                        ? null
+                                        : () {
+                                            viewModel.getUserInfo(
+                                                item.id, index);
+                                          },
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            SizedBox(
+                                              height: 30,
+                                              width: 30,
+                                              child:
+                                                  Image.network(item.picture),
+                                            ),
+                                            const SizedBox(width: 20),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "Name: ${item.firstName + ' ' + item.lastName}",
+                                                    style: const TextStyle(
+                                                      color: Colors.black,
                                                     ),
-                                                    const SizedBox(height: 5),
-                                                    Text(
-                                                      "ID: ${item.id}",
-                                                      style: const TextStyle(
-                                                        color: Colors.black87,
-                                                      ),
+                                                  ),
+                                                  const SizedBox(height: 5),
+                                                  Text(
+                                                    "ID: ${item.id}",
+                                                    style: const TextStyle(
+                                                      color: Colors.black87,
                                                     ),
-                                                  ],
-                                                ),
+                                                  ),
+                                                ],
                                               ),
-                                              const SizedBox(width: 20),
-                                              index == viewModel.setIndex
-                                                  ? const SizedBox(
-                                                      height: 30,
-                                                      width: 30,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        color: Colors.black,
-                                                      ),
-                                                    )
-                                                  : const SizedBox(),
-                                              const SizedBox(width: 5),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
-                                ),
+                                            ),
+                                            const SizedBox(width: 20),
+                                            index == viewModel.setIndex
+                                                ? const SizedBox(
+                                                    height: 30,
+                                                    width: 30,
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      color: Colors.black,
+                                                    ),
+                                                  ) 
+                                                : const SizedBox(),
+                                            const SizedBox(width: 5),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
                               )
                             : const Center(child: Text("No Data")),
-                    verticalSpaceSmall,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        MaterialButton(
-                          color: kcDarkGreyColor,
-                          onPressed: viewModel.showDialog,
-                          child: const Text(
-                            'Show Dialog',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                  ),
+                  verticalSpaceSmall,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      MaterialButton(
+                        color: kcDarkGreyColor,
+                        onPressed: viewModel.showDialog,
+                        child: const Text(
+                          'Show Dialog',
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
                         ),
-                        MaterialButton(
-                          color: kcDarkGreyColor,
-                          onPressed: viewModel.showBottomSheet,
-                          child: const Text(
-                            'Show Bottom Sheet',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
+                      ),
+                      MaterialButton(
+                        color: kcDarkGreyColor,
+                        onPressed: viewModel.showBottomSheet,
+                        child: const Text(
+                          'Show Bottom Sheet',
+                          style: TextStyle(
+                            color: Colors.white,
                           ),
                         ),
-                      ],
-                    )
-                  ],
-                ),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
           ),

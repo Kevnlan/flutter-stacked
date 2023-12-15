@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_application_stacked/models/posts_list.dart';
 import 'package:flutter_application_stacked/models/user.dart';
 import 'package:flutter_application_stacked/models/users_list.dart';
 import 'package:http/http.dart' as http;
@@ -50,5 +51,51 @@ class ApiService {
     );
 
     return User.fromJson(jsonDecode(response.body));
+  }
+
+    Future<List<PostsList>> getListOfPosts() async {
+    var url = Uri.parse('$endPoint/post');
+    List<PostsList> postsList = [];
+
+    var response = await client.get(
+      url,
+      headers: {'app-id': appID},
+    );
+    dynamic parsed;
+    try {
+      parsed = json.decode(response.body);
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+    }
+
+    for (var comment in parsed['data']) {
+      postsList.add(PostsList.fromJson(comment));
+    }
+    return postsList;
+  }
+
+      Future<List<PostsList>> getUserPosts(String userID) async {
+    var url = Uri.parse('$endPoint/post');
+    List<PostsList> postsList = [];
+
+    var response = await client.get(
+      url,
+      headers: {'app-id': appID},
+    );
+    dynamic parsed;
+    try {
+      parsed = json.decode(response.body);
+    } catch (e) {
+      if (kDebugMode) {
+        print(e.toString());
+      }
+    }
+
+    for (var comment in parsed['data']) {
+      postsList.add(PostsList.fromJson(comment));
+    }
+    return postsList;
   }
 }

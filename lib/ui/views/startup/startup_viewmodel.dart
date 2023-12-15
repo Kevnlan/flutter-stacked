@@ -14,5 +14,6 @@ class StartupViewModel extends BaseViewModel {
     // you have custom startup logic
 
     _navigationService.replaceWithHomeView();
+    // _navigationService.replaceWithPostsView();
   }
 }
