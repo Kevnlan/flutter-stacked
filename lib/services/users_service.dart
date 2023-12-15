@@ -1,6 +1,6 @@
+import 'package:flutter_application_stacked/app/app.locator.dart';
 import 'package:flutter_application_stacked/models/users_list.dart';
 import 'package:flutter_application_stacked/services/api_service.dart';
-import 'package:flutter_application_stacked/services/locator.dart';
 
 class UsersService {
   final _apiService = locator<ApiService>();
