@@ -116,7 +116,6 @@ class HomeViewFuture extends FutureViewModel<List> {
 
   void getUserInfo(String userID, int index) async {
     updateStuff(true, index);
-     await Future.delayed(Duration(milliseconds: 50));
     var userDetails = await getUserDetails(userID);
     updateStuff(false, -1);
     _navigationService.navigateToUserDetailsView(

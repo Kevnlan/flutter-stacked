@@ -97,7 +97,7 @@ class HomeView extends StatelessWidget {
                                                       ),
                                                     )
                                                   : const SizedBox(),
-                                                  const SizedBox(width: 5),
+                                              const SizedBox(width: 5),
                                             ],
                                           ),
                                         ],

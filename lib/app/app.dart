@@ -7,6 +7,7 @@ import 'package:flutter_application_stacked/ui/views/startup/startup_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:flutter_application_stacked/ui/views/user_details/user_details_view.dart';
+import 'package:flutter_application_stacked/ui/views/posts/posts_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -14,6 +15,7 @@ import 'package:flutter_application_stacked/ui/views/user_details/user_details_v
     MaterialRoute(page: HomeView),
     MaterialRoute(page: StartupView),
     MaterialRoute(page: UserDetailsView),
+    MaterialRoute(page: PostsView),
 // @stacked-route
   ],
   dependencies: [
