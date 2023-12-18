@@ -21,7 +21,7 @@ class PostsViewModel extends BaseViewModel {
     return _postsList;
   }
 
-    Future<List> fetchUserPosts(String userID) async {
+  Future<List> fetchUserPosts(String userID) async {
     _userPosts.clear();
     _userPosts = await _apiService.getUserPosts(userID);
     return _userPosts;

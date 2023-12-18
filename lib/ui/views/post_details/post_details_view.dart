@@ -8,7 +8,7 @@ class PostDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        return ViewModelBuilder<PostDetailsViewModel>.reactive(
+    return ViewModelBuilder<PostDetailsViewModel>.reactive(
       viewModelBuilder: () => PostDetailsViewModel(),
       onViewModelReady: (viewModel) {},
       builder: (context, viewModel, child) {

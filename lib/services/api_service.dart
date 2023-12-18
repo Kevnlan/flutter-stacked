@@ -22,23 +22,26 @@ class ApiService {
   Future<List<UsersList>> getListofUsers() async {
     var url = Uri.parse('$endPoint/user');
     List<UsersList> usersList = [];
-
-    var response = await client.get(
-      url,
-      headers: {'app-id': appID},
-    );
-    dynamic parsed;
     try {
-      parsed = json.decode(response.body);
-    } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
+      var response = await client.get(
+        url,
+        headers: {'app-id': appID},
+      );
+      dynamic parsed;
+      try {
+        parsed = json.decode(response.body);
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
       }
+      for (var comment in parsed['data']) {
+        usersList.add(UsersList.fromJson(comment));
+      }
+    } catch (e) {
+      //
     }
 
-    for (var comment in parsed['data']) {
-      usersList.add(UsersList.fromJson(comment));
-    }
     return usersList;
   }
 
@@ -53,7 +56,7 @@ class ApiService {
     return User.fromJson(jsonDecode(response.body));
   }
 
-    Future<List<PostsList>> getListOfPosts() async {
+  Future<List<PostsList>> getListOfPosts() async {
     var url = Uri.parse('$endPoint/post');
     List<PostsList> postsList = [];
 
@@ -76,7 +79,7 @@ class ApiService {
     return postsList;
   }
 
-      Future<List<PostsList>> getUserPosts(String userID) async {
+  Future<List<PostsList>> getUserPosts(String userID) async {
     var url = Uri.parse('$endPoint/post');
     List<PostsList> postsList = [];
 
