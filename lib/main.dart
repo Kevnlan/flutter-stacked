@@ -8,10 +8,10 @@ import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".assets/.env");
   await setupLocator();
   setupDialogUi();
   setupBottomSheetUi();
+  await dotenv.load(fileName: "assets/.env");
   runApp(const MainApp());
 }
 
