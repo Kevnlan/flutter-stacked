@@ -8,18 +8,15 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        width: 400,
-        height: 200,
-        margin: const EdgeInsets.all(5),
-        alignment: Alignment.centerRight,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: NetworkImage(image.largeImageUrl),
-            fit: BoxFit.contain,
-          ),
+    return Container(
+      width: 400,
+      height: 200,
+      margin: const EdgeInsets.all(5),
+      alignment: Alignment.centerRight,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(image.largeImageUrl),
+          fit: BoxFit.fitWidth,
         ),
       ),
     );

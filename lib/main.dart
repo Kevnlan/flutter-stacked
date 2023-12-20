@@ -4,6 +4,7 @@ import 'package:flutter_application_stacked/app/app.dialogs.dart';
 import 'package:flutter_application_stacked/app/app.locator.dart';
 import 'package:flutter_application_stacked/app/app.router.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:sizer/sizer.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 Future<void> main() async {
@@ -20,15 +21,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: Routes.startupView,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
-      navigatorKey: StackedService.navigatorKey,
-      // theme: ThemeData.dark(useMaterial3: true),
-      debugShowCheckedModeBanner: false,
-      navigatorObservers: [
-        StackedService.routeObserver,
-      ],
-    );
+    return Sizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        initialRoute: Routes.startupView,
+        onGenerateRoute: StackedRouter().onGenerateRoute,
+        navigatorKey: StackedService.navigatorKey,
+        // theme: ThemeData.dark(useMaterial3: true),
+        debugShowCheckedModeBanner: false,
+        navigatorObservers: [
+          StackedService.routeObserver,
+        ],
+      );
+    });
   }
 }

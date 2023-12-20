@@ -43,13 +43,6 @@ class TabsView extends StatelessWidget {
                   child: Column(
                     children: [
                       verticalSpaceMedium,
-                      // Container(
-                      //   width: 180,
-                      //   height: 139,
-                      //   margin: EdgeInsets.all(5),
-                      //   child: Image.network(
-                      //       'https://pixabay.com/get/g4aa67a69721c275a9c7a5aba56d321311871e55abcc655bf94cb02c3d67284d546ab838e07e2e8f12aa75fb8f164878bc42ac960af82f6dae9f51fcc9720f46f_1280.jpg'),
-                      // ),
                       Expanded(
                         child: ListView.separated(
                           itemCount: model.curatedImages.length,
@@ -57,6 +50,33 @@ class TabsView extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             var image = model.curatedImages[index];
+                            return GestureDetector(
+                              onTap: () {
+                                model.actionDialog(context,image);
+                                // model.displayDialog(image);
+                              },
+                              child: ImageView(
+                                image: image,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Column(
+                    children: [
+                      verticalSpaceMedium,
+                      Expanded(
+                        child: ListView.separated(
+                          itemCount: model.approvedImages.length,
+                          separatorBuilder: (context, index) => const Divider(),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            var image = model.approvedImages[index];
                             return ImageView(
                               image: image,
                             );
@@ -66,9 +86,48 @@ class TabsView extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Icon(Icons.directions_transit, size: 350),
-                const Icon(Icons.directions_car, size: 350),
-                const Icon(Icons.directions_boat, size: 350),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Column(
+                    children: [
+                      verticalSpaceMedium,
+                      Expanded(
+                        child: ListView.separated(
+                          itemCount: model.rejectedImages.length,
+                          separatorBuilder: (context, index) => const Divider(),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            var image = model.rejectedImages[index];
+                            return ImageView(
+                              image: image,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                  child: Column(
+                    children: [
+                      verticalSpaceMedium,
+                      Expanded(
+                        child: ListView.separated(
+                          itemCount: model.shortlistedImages.length,
+                          separatorBuilder: (context, index) => const Divider(),
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            var image = model.shortlistedImages[index];
+                            return ImageView(
+                              image: image,
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
