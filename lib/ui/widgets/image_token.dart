@@ -26,7 +26,6 @@ class _ImageWithTokenState extends State<ImageWithToken> {
   Future<void> _fetchImage() async {
     _response = await http.get(
       Uri.parse(widget.imageUrl),
-      // headers: {'Authorization': 'Nh11T0hYc2OL78dQKfUZIDOynmDce2DhDBo5KsDM2S8uiCE9K5SK7cLm'},
     );
 
     setState(() {
