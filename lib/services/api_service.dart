@@ -132,11 +132,12 @@ class ApiService {
       for (var comment in parsed['photos']) {
         imageList.add(Images.fromJson(comment));
       }
-    } catch (e) {}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
     return imageList;
   }
 
-  
   Future<List<PixabayImages>> getPixabayImages() async {
     var url = Uri.parse(pixabayEndpoint);
     List<PixabayImages> imageList = [];
@@ -163,7 +164,7 @@ class ApiService {
       for (var comment in parsed['hits']) {
         imageList.add(PixabayImages.fromJson(comment));
       }
-    } catch (e) {}
+    } catch (e) {debugPrint(e.toString());}
     return imageList;
   }
 }

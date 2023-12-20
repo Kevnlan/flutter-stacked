@@ -66,7 +66,7 @@ class PostsView extends StatelessWidget {
                                             Text(post.text),
                                             Row(
                                               children: [
-                                                Text('Tags'),
+                                                const Text('Tags'),
                                                 horizontalSpaceTiny,
                                                 ...List.generate(
                                                     post.tags.length,

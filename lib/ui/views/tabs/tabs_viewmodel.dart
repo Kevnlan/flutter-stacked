@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_final_fields
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_application_stacked/app/app.locator.dart';
 import 'package:flutter_application_stacked/models/images.dart';
 import 'package:flutter_application_stacked/models/pixabay_images.dart';
@@ -29,8 +32,12 @@ class TabsViewModel extends BaseViewModel {
     _shortlistedImages.clear();
 
     _curatedImages = await _apiService.getPixabayImages();
-    print('object');
-    print(_curatedImages.length);
+    if (kDebugMode) {
+      print('object');
+    }
+    if (kDebugMode) {
+      print(_curatedImages.length);
+    }
     return _curatedImages;
   }
 
@@ -50,7 +57,7 @@ class TabsViewModel extends BaseViewModel {
   }
 
   Future addApprovedImages(Images image) async {
-    if (!_approvedImages.contains(image.id)) {
+    if (!_approvedImages.contains(image)) {
       _approvedImages.add(image);
     } else {
       _approvedImages.removeWhere((element) => element == image);

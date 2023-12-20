@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_stacked/ui/common/ui_helpers.dart';
-import 'package:flutter_application_stacked/ui/widgets/image_token.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../widgets/image_view.dart';

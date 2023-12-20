@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stacked/models/images.dart';
 import 'package:flutter_application_stacked/models/pixabay_images.dart';
 
 class ImageView extends StatelessWidget {
@@ -18,7 +17,7 @@ class ImageView extends StatelessWidget {
         alignment: Alignment.centerRight,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(image.largeImageUrl!),
+            image: NetworkImage(image.largeImageUrl),
             fit: BoxFit.contain,
           ),
         ),
