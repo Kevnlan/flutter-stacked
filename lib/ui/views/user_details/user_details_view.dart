@@ -60,9 +60,7 @@ class UserDetailsView extends StatelessWidget {
                         text: TextSpan(
                           text: user.title,
                           style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black
-                          ),
+                              fontWeight: FontWeight.bold, color: Colors.black),
                           children: <TextSpan>[
                             TextSpan(
                               text: ' ${user.firstName} ${user.lastName}',

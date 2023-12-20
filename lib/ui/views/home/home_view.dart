@@ -10,8 +10,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<HomeViewFuture>.reactive(
-      viewModelBuilder: () => HomeViewFuture(),
+    return ViewModelBuilder<HomeViewModel>.reactive(
+      viewModelBuilder: () => HomeViewModel(),
       builder: (context, viewModel, _) {
         return Scaffold(
           // appBar: AppBar(
@@ -20,121 +20,137 @@ class HomeView extends StatelessWidget {
           body: SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    verticalSpaceSmall,
-                    const Text(
-                      'Hello, STACKED!',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w900,
-                      ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  verticalSpaceSmall,
+                  const Text(
+                    'Hello, STACKED!',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w900,
                     ),
-                    verticalSpaceMedium,
-                    viewModel.isBusy
-                        ? const Center(child: CircularProgressIndicator())
-                        : viewModel.data != null
-                            ? Expanded(
-                                child: ListView.separated(
-                                  itemCount: viewModel.data!.length,
-                                  separatorBuilder: (context, index) =>
-                                      const Divider(),
-                                  shrinkWrap: true,
-                                  itemBuilder: (context, index) {
-                                    var item = viewModel.data![index];
-                                    return InkWell(
-                                      onTap: index == viewModel.setIndex
-                                          ? null
-                                          : () {
-                                              viewModel.getUserInfo(
-                                                  item.id, index);
-                                            },
-                                      child: Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                height: 30,
-                                                width: 30,
-                                                child:
-                                                    Image.network(item.picture),
-                                              ),
-                                              const SizedBox(width: 20),
-                                              Expanded(
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "Name: ${item.firstName + ' ' + item.lastName}",
-                                                      style: const TextStyle(
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(height: 5),
-                                                    Text(
-                                                      "ID: ${item.id}",
-                                                      style: const TextStyle(
-                                                        color: Colors.black87,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(width: 20),
-                                              index == viewModel.setIndex
-                                                  ? const SizedBox(
-                                                      height: 30,
-                                                      width: 30,
-                                                      child:
-                                                          CircularProgressIndicator(
-                                                        color: Colors.black,
-                                                      ),
-                                                    )
-                                                  : const SizedBox(),
-                                                  const SizedBox(width: 5),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    );
-                                  },
+                  ),
+                  verticalSpaceMedium,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.viewUsers();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.black)),
+                              child: const Text(
+                                'View Users',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
-                              )
-                            : const Center(child: Text("No Data")),
-                    verticalSpaceSmall,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        MaterialButton(
-                          color: kcDarkGreyColor,
-                          onPressed: viewModel.showDialog,
-                          child: const Text(
-                            'Show Dialog',
-                            style: TextStyle(
-                              color: Colors.white,
+                              ),
                             ),
                           ),
                         ),
-                        MaterialButton(
-                          color: kcDarkGreyColor,
-                          onPressed: viewModel.showBottomSheet,
-                          child: const Text(
-                            'Show Bottom Sheet',
-                            style: TextStyle(
-                              color: Colors.white,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.viewPosts();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Text(
+                                'View Posts',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ],
-                    )
-                  ],
-                ),
+                      ),
+                    ],
+                  ),
+                  verticalSpaceMedium,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.viewTabs();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.black)),
+                              child: const Text(
+                                'View Tabs',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.viewAudio();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Text(
+                                'View Audio',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
@@ -187,7 +203,7 @@ class HomeViewB extends StackedView<HomeViewModel> {
                   children: [
                     MaterialButton(
                       color: kcDarkGreyColor,
-                      onPressed: viewModel.showDialog,
+                      onPressed: () {},
                       child: const Text(
                         'Show Dialog',
                         style: TextStyle(
@@ -197,7 +213,7 @@ class HomeViewB extends StackedView<HomeViewModel> {
                     ),
                     MaterialButton(
                       color: kcDarkGreyColor,
-                      onPressed: viewModel.showBottomSheet,
+                      onPressed: () {},
                       child: const Text(
                         'Show Bottom Sheet',
                         style: TextStyle(

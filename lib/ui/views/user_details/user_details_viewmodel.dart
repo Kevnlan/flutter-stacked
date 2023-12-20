@@ -9,7 +9,7 @@ class UserDetailsViewModel extends BaseViewModel {
 
   late User _userDeatils;
 
-  final dateFormat =  DateFormat('dd-MMM-yyy hh:mm');
+  final dateFormat = DateFormat('dd-MMM-yyy hh:mm');
 
   Future<User> getUserDetails(String userID) async {
     _userDeatils = await _apiService.getUserByID(userID);
