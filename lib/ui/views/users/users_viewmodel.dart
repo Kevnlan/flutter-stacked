@@ -10,8 +10,9 @@ import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 final _navigationService = locator<NavigationService>();
- final _bottomSheetService = locator<BottomSheetService>();
- final _dialogService = locator<DialogService>();
+final _bottomSheetService = locator<BottomSheetService>();
+final _dialogService = locator<DialogService>();
+final _apiService = locator<ApiService>();
 
 class UsersViewModel extends BaseViewModel {
   bool _isfetching = false;
@@ -20,7 +21,6 @@ class UsersViewModel extends BaseViewModel {
   bool get isFetching => _isfetching;
   int get setIndex => _setIndex;
 
-  final _apiService = locator<ApiService>();
   List<UsersList> _usersList = [];
   List<UsersList> get usersList => _usersList;
 
@@ -62,7 +62,7 @@ class UsersViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-    void showBottomSheet(UsersList user) {
+  void showBottomSheet(UsersList user) {
     _bottomSheetService.showCustomSheet(
       variant: BottomSheetType.notice,
       title: user.firstName,
@@ -76,7 +76,7 @@ class UsersViewModel extends BaseViewModel {
     );
   }
 
-    void showDialog(UsersList user) {
+  void showDialog(UsersList user) {
     _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
       title: 'Stacked Rocks!',

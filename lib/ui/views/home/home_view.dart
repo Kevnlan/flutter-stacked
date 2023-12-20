@@ -67,7 +67,7 @@ class HomeView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: GestureDetector(
                             onTap: () {
-                                viewModel.viewPosts();
+                              viewModel.viewPosts();
                             },
                             child: Container(
                               height: 50,
@@ -90,7 +90,66 @@ class HomeView extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  verticalSpaceMedium,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.viewTabs();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.black)),
+                              child: const Text(
+                                'View Tabs',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.viewAudio();
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Text(
+                                'View Audio',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -144,7 +203,7 @@ class HomeViewB extends StackedView<HomeViewModel> {
                   children: [
                     MaterialButton(
                       color: kcDarkGreyColor,
-                      onPressed: (){},
+                      onPressed: () {},
                       child: const Text(
                         'Show Dialog',
                         style: TextStyle(
@@ -154,7 +213,7 @@ class HomeViewB extends StackedView<HomeViewModel> {
                     ),
                     MaterialButton(
                       color: kcDarkGreyColor,
-                      onPressed: (){},
+                      onPressed: () {},
                       child: const Text(
                         'Show Bottom Sheet',
                         style: TextStyle(

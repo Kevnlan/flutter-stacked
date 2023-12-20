@@ -13,4 +13,12 @@ class HomeViewModel extends BaseViewModel {
   Future viewPosts() async {
     _navigationService.navigateToPostsView();
   }
+
+    Future viewTabs() async {
+    _navigationService.navigateToTabsView();
+  }
+
+    Future viewAudio() async {
+    _navigationService.navigateToAudioView();
+  }
 }
