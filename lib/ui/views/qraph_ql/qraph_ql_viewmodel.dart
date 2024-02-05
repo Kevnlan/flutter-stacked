@@ -59,4 +59,17 @@ query Ships {
 """;
 
   String get spaceXShips => _spaceXShips;
+
+  final String _nodeQl = """
+      query getImagesByCategory(\$imageCategory: String) {
+        images(category: \$imageCategory) {
+          title
+          owner
+          category
+          url
+        }
+      }
+""";
+
+  String get nodeQL => _nodeQl;
 }

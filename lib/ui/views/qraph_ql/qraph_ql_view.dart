@@ -17,11 +17,15 @@ class QraphQlView extends StackedView<QraphQlViewModel> {
   ) {
     return Query(
       options: QueryOptions(
-        document: gql(viewModel.spaceXShips),
+        document: gql(viewModel.nodeQL),
+        variables: {"imageCategory": "coffee"},
       ),
       builder: (QueryResult result,
           {VoidCallback? refetch, FetchMore? fetchMore}) {
         if (result.hasException) {
+          print(
+            result.exception.toString(),
+          );
           return Scaffold(
             body: Center(
               child: Text(
@@ -36,7 +40,7 @@ class QraphQlView extends StackedView<QraphQlViewModel> {
         }
 
         // final dragons = result.data!['dragons'] as List<dynamic>;
-        final ships = result.data!['ships'] as List<dynamic>;
+        final images = result.data!['images'] as List<dynamic>;
 
         return Scaffold(
           appBar: AppBar(
@@ -50,12 +54,25 @@ class QraphQlView extends StackedView<QraphQlViewModel> {
                 verticalSpaceSmall,
                 Expanded(
                   child: ListView.builder(
-                    itemCount: ships.length,
+                    itemCount: images.length,
                     itemBuilder: (context, index) {
-                      final ship = ships[index];
+                      final ship = images[index];
                       return ListTile(
-                        title: Text(ship['name']),
-                        subtitle: Text("${ship['type']}"),
+                        leading: Container(
+                          width: 100,
+                              height: 100,
+                              decoration: BoxDecoration(shape: BoxShape.circle),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              ship['url'],
+                              
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        title: Text(ship['title']),
+                        subtitle: Text("${ship['category']}"),
                       );
                     },
                   ),

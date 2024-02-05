@@ -19,6 +19,11 @@ Future<void> main() async {
     'https://spacex-production.up.railway.app/',
   );
 
+    final HttpLink localNodeLink = HttpLink(
+    'http://192.168.100.122:8080/graphql',
+  );
+
+
   // final HttpLink rickAndMortyHttpLink =
   //   HttpLink('https://rickandmortyapi.com/graphql');
 
@@ -27,7 +32,7 @@ Future<void> main() async {
       cache: GraphQLCache(
         store: InMemoryStore(),
       ),
-      link: link,
+      link: localNodeLink,
     ),
   );
   runApp(MainApp(
