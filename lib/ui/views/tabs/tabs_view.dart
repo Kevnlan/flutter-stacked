@@ -52,7 +52,7 @@ class TabsView extends StatelessWidget {
                             var image = model.curatedImages[index];
                             return GestureDetector(
                               onTap: () {
-                                model.actionDialog(context,image);
+                                model.actionDialog(context, image);
                                 // model.displayDialog(image);
                               },
                               child: ImageView(

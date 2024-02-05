@@ -97,8 +97,8 @@ class TabsViewModel extends BaseViewModel {
     return _approvedImages;
   }
 
-    Future removeRejectedImages(PixabayImages image) async {
-     _rejectedImages.removeWhere((element) => element == image);
+  Future removeRejectedImages(PixabayImages image) async {
+    _rejectedImages.removeWhere((element) => element == image);
     notifyListeners();
     return _rejectedImages;
   }

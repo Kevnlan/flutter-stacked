@@ -7,7 +7,6 @@ import 'package:flutter_application_stacked/ui/common/app_strings.dart';
 import '../helpers/test_helpers.dart';
 
 void main() {
-
   group('HomeViewmodelTest -', () {
     setUp(() => registerServices());
     tearDown(() => locator.reset());

@@ -5,8 +5,7 @@ import 'package:http/http.dart' as http;
 class ImageWithToken extends StatefulWidget {
   final String imageUrl;
 
-  const ImageWithToken({Key? key, required this.imageUrl})
-      : super(key: key);
+  const ImageWithToken({Key? key, required this.imageUrl}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
