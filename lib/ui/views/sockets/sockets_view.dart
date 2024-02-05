@@ -14,8 +14,25 @@ class SocketsView extends StackedView<SocketsViewModel> {
   ) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+      body: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+          child: viewModel.users['data'] == null
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : ListView.builder(
+                  itemCount: viewModel.users['data'].length,
+                  itemBuilder: (context, index) {
+                    var user = viewModel.users['data'][index];
+                    return ListTile(
+                      title:
+                          Text('${user['first_name']}  ${user['last_name']}'),
+                      subtitle: Text('${user['email']}'),
+                    );
+                  },
+                ),
+        ),
       ),
     );
   }
@@ -25,4 +42,11 @@ class SocketsView extends StackedView<SocketsViewModel> {
     BuildContext context,
   ) =>
       SocketsViewModel();
+
+  @override
+  void onViewModelReady(SocketsViewModel viewModel) {
+    // This method will be called when the ViewModel is ready
+    viewModel.initSocket();
+    super.onViewModelReady(viewModel);
+  }
 }
