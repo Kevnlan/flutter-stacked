@@ -40,7 +40,7 @@ class HomeView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: GestureDetector(
                             onTap: () {
-                              viewModel.viewUsers();
+                              viewModel.navToPage("users");
                             },
                             child: Container(
                               height: 50,
@@ -67,7 +67,7 @@ class HomeView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: GestureDetector(
                             onTap: () {
-                              viewModel.viewPosts();
+                              viewModel.navToPage("posts");
                             },
                             child: Container(
                               height: 50,
@@ -99,7 +99,7 @@ class HomeView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: GestureDetector(
                             onTap: () {
-                              viewModel.viewTabs();
+                              viewModel.navToPage("tabs");
                             },
                             child: Container(
                               height: 50,
@@ -126,7 +126,7 @@ class HomeView extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: GestureDetector(
                             onTap: () {
-                              viewModel.viewAudio();
+                              viewModel.navToPage("audio");
                             },
                             child: Container(
                               height: 50,
@@ -138,6 +138,65 @@ class HomeView extends StatelessWidget {
                               ),
                               child: const Text(
                                 'View Audio',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  verticalSpaceMedium,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.navToPage("graphql");
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(color: Colors.black)),
+                              child: const Text(
+                                'Graph QL',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: GestureDetector(
+                            onTap: () {
+                              viewModel.navToPage("sockets");
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: const Text(
+                                'Sockets',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,

@@ -9,33 +9,33 @@ Images imagesFromJson(String str) => Images.fromJson(json.decode(str));
 String imagesToJson(Images data) => json.encode(data.toJson());
 
 class Images {
-    int id;
-    int width;
-    int height;
-    String url;
-    String photographer;
-    String photographerUrl;
-    int photographerId;
-    String avgColor;
-    Src src;
-    bool liked;
-    String alt;
+  int id;
+  int width;
+  int height;
+  String url;
+  String photographer;
+  String photographerUrl;
+  int photographerId;
+  String avgColor;
+  Src src;
+  bool liked;
+  String alt;
 
-    Images({
-        required this.id,
-        required this.width,
-        required this.height,
-        required this.url,
-        required this.photographer,
-        required this.photographerUrl,
-        required this.photographerId,
-        required this.avgColor,
-        required this.src,
-        required this.liked,
-        required this.alt,
-    });
+  Images({
+    required this.id,
+    required this.width,
+    required this.height,
+    required this.url,
+    required this.photographer,
+    required this.photographerUrl,
+    required this.photographerId,
+    required this.avgColor,
+    required this.src,
+    required this.liked,
+    required this.alt,
+  });
 
-    factory Images.fromJson(Map<String, dynamic> json) => Images(
+  factory Images.fromJson(Map<String, dynamic> json) => Images(
         id: json["id"],
         width: json["width"],
         height: json["height"],
@@ -47,9 +47,9 @@ class Images {
         src: Src.fromJson(json["src"]),
         liked: json["liked"],
         alt: json["alt"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "width": width,
         "height": height,
@@ -61,31 +61,31 @@ class Images {
         "src": src.toJson(),
         "liked": liked,
         "alt": alt,
-    };
+      };
 }
 
 class Src {
-    String original;
-    String large2X;
-    String large;
-    String medium;
-    String small;
-    String portrait;
-    String landscape;
-    String tiny;
+  String original;
+  String large2X;
+  String large;
+  String medium;
+  String small;
+  String portrait;
+  String landscape;
+  String tiny;
 
-    Src({
-        required this.original,
-        required this.large2X,
-        required this.large,
-        required this.medium,
-        required this.small,
-        required this.portrait,
-        required this.landscape,
-        required this.tiny,
-    });
+  Src({
+    required this.original,
+    required this.large2X,
+    required this.large,
+    required this.medium,
+    required this.small,
+    required this.portrait,
+    required this.landscape,
+    required this.tiny,
+  });
 
-    factory Src.fromJson(Map<String, dynamic> json) => Src(
+  factory Src.fromJson(Map<String, dynamic> json) => Src(
         original: json["original"],
         large2X: json["large2x"],
         large: json["large"],
@@ -94,9 +94,9 @@ class Src {
         portrait: json["portrait"],
         landscape: json["landscape"],
         tiny: json["tiny"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "original": original,
         "large2x": large2X,
         "large": large,
@@ -105,5 +105,5 @@ class Src {
         "portrait": portrait,
         "landscape": landscape,
         "tiny": tiny,
-    };
+      };
 }

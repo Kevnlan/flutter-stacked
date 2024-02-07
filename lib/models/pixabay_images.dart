@@ -4,60 +4,61 @@
 
 import 'dart:convert';
 
-PixabayImages pixabayImagesFromJson(String str) => PixabayImages.fromJson(json.decode(str));
+PixabayImages pixabayImagesFromJson(String str) =>
+    PixabayImages.fromJson(json.decode(str));
 
 String pixabayImagesToJson(PixabayImages data) => json.encode(data.toJson());
 
 class PixabayImages {
-    int id;
-    String pageUrl;
-    String type;
-    String tags;
-    String previewUrl;
-    int previewWidth;
-    int previewHeight;
-    String webformatUrl;
-    int webformatWidth;
-    int webformatHeight;
-    String largeImageUrl;
-    int imageWidth;
-    int imageHeight;
-    int imageSize;
-    int views;
-    int downloads;
-    int collections;
-    int likes;
-    int comments;
-    int userId;
-    String user;
-    String userImageUrl;
+  int id;
+  String pageUrl;
+  String type;
+  String tags;
+  String previewUrl;
+  int previewWidth;
+  int previewHeight;
+  String webformatUrl;
+  int webformatWidth;
+  int webformatHeight;
+  String largeImageUrl;
+  int imageWidth;
+  int imageHeight;
+  int imageSize;
+  int views;
+  int downloads;
+  int collections;
+  int likes;
+  int comments;
+  int userId;
+  String user;
+  String userImageUrl;
 
-    PixabayImages({
-        required this.id,
-        required this.pageUrl,
-        required this.type,
-        required this.tags,
-        required this.previewUrl,
-        required this.previewWidth,
-        required this.previewHeight,
-        required this.webformatUrl,
-        required this.webformatWidth,
-        required this.webformatHeight,
-        required this.largeImageUrl,
-        required this.imageWidth,
-        required this.imageHeight,
-        required this.imageSize,
-        required this.views,
-        required this.downloads,
-        required this.collections,
-        required this.likes,
-        required this.comments,
-        required this.userId,
-        required this.user,
-        required this.userImageUrl,
-    });
+  PixabayImages({
+    required this.id,
+    required this.pageUrl,
+    required this.type,
+    required this.tags,
+    required this.previewUrl,
+    required this.previewWidth,
+    required this.previewHeight,
+    required this.webformatUrl,
+    required this.webformatWidth,
+    required this.webformatHeight,
+    required this.largeImageUrl,
+    required this.imageWidth,
+    required this.imageHeight,
+    required this.imageSize,
+    required this.views,
+    required this.downloads,
+    required this.collections,
+    required this.likes,
+    required this.comments,
+    required this.userId,
+    required this.user,
+    required this.userImageUrl,
+  });
 
-    factory PixabayImages.fromJson(Map<String, dynamic> json) => PixabayImages(
+  factory PixabayImages.fromJson(Map<String, dynamic> json) => PixabayImages(
         id: json["id"],
         pageUrl: json["pageURL"],
         type: json["type"],
@@ -80,9 +81,9 @@ class PixabayImages {
         userId: json["user_id"],
         user: json["user"],
         userImageUrl: json["userImageURL"],
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "pageURL": pageUrl,
         "type": type,
@@ -105,5 +106,5 @@ class PixabayImages {
         "user_id": userId,
         "user": user,
         "userImageURL": userImageUrl,
-    };
+      };
 }

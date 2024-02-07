@@ -164,7 +164,9 @@ class ApiService {
       for (var comment in parsed['hits']) {
         imageList.add(PixabayImages.fromJson(comment));
       }
-    } catch (e) {debugPrint(e.toString());}
+    } catch (e) {
+      debugPrint(e.toString());
+    }
     return imageList;
   }
 }

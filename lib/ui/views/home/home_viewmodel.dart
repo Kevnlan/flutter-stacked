@@ -6,19 +6,29 @@ import 'package:stacked_services/stacked_services.dart';
 final _navigationService = locator<NavigationService>();
 
 class HomeViewModel extends BaseViewModel {
-  Future viewUsers() async {
-    _navigationService.navigateToUsersView();
-  }
+  Future navToPage(page) async {
+    switch (page) {
+      case "users":
+        _navigationService.navigateToUsersView();
+        break;
+      case "posts":
+        _navigationService.navigateToPostsView();
+        break;
+      case "tabs":
+        _navigationService.navigateToTabsView();
+        break;
+      case "audio":
+        _navigationService.navigateToAudioView();
+        break;
+      case "graphql":
+        _navigationService.navigateToQraphQlView();
+        break;
+      case "sockets":
+        _navigationService.navigateToSocketsView();
+        break;
 
-  Future viewPosts() async {
-    _navigationService.navigateToPostsView();
-  }
-
-    Future viewTabs() async {
-    _navigationService.navigateToTabsView();
-  }
-
-    Future viewAudio() async {
-    _navigationService.navigateToAudioView();
+      default:
+        break;
+    }
   }
 }
