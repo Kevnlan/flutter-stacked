@@ -14,6 +14,8 @@ import 'package:flutter_application_stacked/ui/views/tabs/tabs_view.dart';
 import 'package:flutter_application_stacked/ui/views/audio/audio_view.dart';
 import 'package:flutter_application_stacked/ui/views/qraph_ql/qraph_ql_view.dart';
 import 'package:flutter_application_stacked/ui/views/sockets/sockets_view.dart';
+import 'package:flutter_application_stacked/ui/views/login/login_view.dart';
+import 'package:flutter_application_stacked/ui/views/signup/signup_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -28,6 +30,8 @@ import 'package:flutter_application_stacked/ui/views/sockets/sockets_view.dart';
     MaterialRoute(page: AudioView),
     MaterialRoute(page: QraphQlView),
     MaterialRoute(page: SocketsView),
+    MaterialRoute(page: LoginView),
+    MaterialRoute(page: SignupView),
 // @stacked-route
   ],
   dependencies: [

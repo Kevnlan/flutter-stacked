@@ -23,6 +23,8 @@ class ApiService {
   static String apiKey = dotenv.env['API_KEY_PEXELS']!;
   static String pixabayKey = dotenv.env['API_KEY_PIXABAY']!;
 
+  static const baseUrl = "192.168.100.122:2020";
+
   var client = http.Client();
 
   Map<String, String> requestHeaders = {'app-id': appID!};

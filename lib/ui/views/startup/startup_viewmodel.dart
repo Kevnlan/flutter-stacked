@@ -13,7 +13,24 @@ class StartupViewModel extends BaseViewModel {
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
 
-    _navigationService.replaceWithHomeView();
+    // _navigationService.replaceWithHomeView();
     // _navigationService.replaceWithPostsView();
   }
+
+  void navToPage(page) {
+    switch (page) {
+      case "login":
+        _navigationService.navigateToLoginView();
+        break;
+      case "register":
+        _navigationService.navigateToSignupView();
+        break;
+      case "google":
+        break;
+      default:
+        break;
+    }
+  }
+
+  void googleRegistration(){}
 }

@@ -5,20 +5,24 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/foundation.dart' as _i13;
-import 'package:flutter/material.dart' as _i12;
+import 'package:flutter/foundation.dart' as _i15;
+import 'package:flutter/material.dart' as _i14;
 import 'package:flutter/material.dart';
-import 'package:flutter_application_stacked/models/user.dart' as _i14;
+import 'package:flutter_application_stacked/models/user.dart' as _i16;
 import 'package:flutter_application_stacked/ui/views/audio/audio_view.dart'
     as _i9;
 import 'package:flutter_application_stacked/ui/views/home/home_view.dart'
     as _i2;
+import 'package:flutter_application_stacked/ui/views/login/login_view.dart'
+    as _i12;
 import 'package:flutter_application_stacked/ui/views/post_details/post_details_view.dart'
     as _i6;
 import 'package:flutter_application_stacked/ui/views/posts/posts_view.dart'
     as _i5;
 import 'package:flutter_application_stacked/ui/views/qraph_ql/qraph_ql_view.dart'
     as _i10;
+import 'package:flutter_application_stacked/ui/views/signup/signup_view.dart'
+    as _i13;
 import 'package:flutter_application_stacked/ui/views/sockets/sockets_view.dart'
     as _i11;
 import 'package:flutter_application_stacked/ui/views/startup/startup_view.dart'
@@ -30,7 +34,7 @@ import 'package:flutter_application_stacked/ui/views/user_details/user_details_v
 import 'package:flutter_application_stacked/ui/views/users/users_view.dart'
     as _i7;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i15;
+import 'package:stacked_services/stacked_services.dart' as _i17;
 
 class Routes {
   static const homeView = '/home-view';
@@ -53,6 +57,10 @@ class Routes {
 
   static const socketsView = '/sockets-view';
 
+  static const loginView = '/login-view';
+
+  static const signupView = '/signup-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -64,6 +72,8 @@ class Routes {
     audioView,
     qraphQlView,
     socketsView,
+    loginView,
+    signupView,
   };
 }
 
@@ -109,68 +119,88 @@ class StackedRouter extends _i1.RouterBase {
       Routes.socketsView,
       page: _i11.SocketsView,
     ),
+    _i1.RouteDef(
+      Routes.loginView,
+      page: _i12.LoginView,
+    ),
+    _i1.RouteDef(
+      Routes.signupView,
+      page: _i13.SignupView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.UserDetailsView: (data) {
       final args = data.getArgs<UserDetailsViewArguments>(nullOk: false);
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => _i4.UserDetailsView(
             key: args.key, user: args.user, userID: args.userID),
         settings: data,
       );
     },
     _i5.PostsView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.PostsView(),
         settings: data,
       );
     },
     _i6.PostDetailsView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.PostDetailsView(),
         settings: data,
       );
     },
     _i7.UsersView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.UsersView(),
         settings: data,
       );
     },
     _i8.TabsView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.TabsView(),
         settings: data,
       );
     },
     _i9.AudioView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.AudioView(),
         settings: data,
       );
     },
     _i10.QraphQlView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.QraphQlView(),
         settings: data,
       );
     },
     _i11.SocketsView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i14.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.SocketsView(),
+        settings: data,
+      );
+    },
+    _i12.LoginView: (data) {
+      return _i14.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i12.LoginView(),
+        settings: data,
+      );
+    },
+    _i13.SignupView: (data) {
+      return _i14.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i13.SignupView(),
         settings: data,
       );
     },
@@ -190,9 +220,9 @@ class UserDetailsViewArguments {
     required this.userID,
   });
 
-  final _i13.Key? key;
+  final _i15.Key? key;
 
-  final _i14.User user;
+  final _i16.User user;
 
   final String userID;
 
@@ -213,7 +243,7 @@ class UserDetailsViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i15.NavigationService {
+extension NavigatorStateExtension on _i17.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -243,8 +273,8 @@ extension NavigatorStateExtension on _i15.NavigationService {
   }
 
   Future<dynamic> navigateToUserDetailsView({
-    _i13.Key? key,
-    required _i14.User user,
+    _i15.Key? key,
+    required _i16.User user,
     required String userID,
     int? routerId,
     bool preventDuplicates = true,
@@ -359,6 +389,34 @@ extension NavigatorStateExtension on _i15.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToLoginView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.loginView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToSignupView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.signupView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -388,8 +446,8 @@ extension NavigatorStateExtension on _i15.NavigationService {
   }
 
   Future<dynamic> replaceWithUserDetailsView({
-    _i13.Key? key,
-    required _i14.User user,
+    _i15.Key? key,
+    required _i16.User user,
     required String userID,
     int? routerId,
     bool preventDuplicates = true,
@@ -498,6 +556,34 @@ extension NavigatorStateExtension on _i15.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.socketsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithLoginView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.loginView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithSignupView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.signupView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

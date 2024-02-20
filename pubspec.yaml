@@ -36,5 +36,7 @@ flutter:
 
   assets:
     - assets/.env
+    - assets/brand/
+    - assets/logos/
 
 
