@@ -60,13 +60,12 @@ class QraphQlView extends StackedView<QraphQlViewModel> {
                       return ListTile(
                         leading: Container(
                           width: 100,
-                              height: 100,
-                              decoration: BoxDecoration(shape: BoxShape.circle),
+                          height: 100,
+                          decoration: BoxDecoration(shape: BoxShape.circle),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(50),
                             child: Image.network(
                               ship['url'],
-                              
                               fit: BoxFit.fill,
                             ),
                           ),
