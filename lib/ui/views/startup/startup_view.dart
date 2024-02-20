@@ -85,7 +85,7 @@ class StartupView extends StackedView<StartupViewModel> {
               verticalSpaceSmall,
               GestureDetector(
                 onTap: () {
-                  // viewModel.navToPage("register");
+                  viewModel.onPressed("google_signup");
                 },
                 child: Container(
                   width: double.infinity,
@@ -128,7 +128,7 @@ class StartupView extends StackedView<StartupViewModel> {
               verticalSpaceSmall,
               GestureDetector(
                 onTap: () {
-                  viewModel.navToPage("register");
+                  viewModel.onPressed("nav_register");
                 },
                 child: Container(
                   width: double.infinity,
@@ -139,22 +139,16 @@ class StartupView extends StackedView<StartupViewModel> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
+                      SizedBox(
                         width: 24,
                         height: 24,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage(
-                                "https://via.placeholder.com/24x24"),
-                            fit: BoxFit.fill,
-                          ),
-                        ),
+                        child: Icon(Icons.alternate_email),
                       ),
                       horizontalSpaceSmall,
-                      const Text(
+                      Text(
                         'Continue with Email',
                         style: TextStyle(
                           color: Color(0xFF1C1C1C),
@@ -172,7 +166,7 @@ class StartupView extends StackedView<StartupViewModel> {
               Center(
                 child: GestureDetector(
                   onTap: () {
-                    viewModel.navToPage("login");
+                    viewModel.onPressed("nav_login");
                   },
                   child: RichText(
                     text: const TextSpan(

@@ -17,20 +17,36 @@ class StartupViewModel extends BaseViewModel {
     // _navigationService.replaceWithPostsView();
   }
 
-  void navToPage(page) {
-    switch (page) {
-      case "login":
+  void onPressed(action) {
+    switch (action) {
+      case "nav_login":
         _navigationService.navigateToLoginView();
         break;
-      case "register":
+      case "nav_register":
         _navigationService.navigateToSignupView();
         break;
-      case "google":
+      case "email_login":
+        emailLogin();
+        break;
+      case "email_register":
+        emailRegistration();
+        break;
+      case "google_signup":
+        googleRegistration();
+        break;
+      case "google_login":
+        googleLogin();
         break;
       default:
         break;
     }
   }
 
-  void googleRegistration(){}
+  void emailLogin() {}
+
+  void emailRegistration() {}
+
+  void googleRegistration() {}
+
+  void googleLogin() {}
 }
