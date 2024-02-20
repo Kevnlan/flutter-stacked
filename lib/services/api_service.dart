@@ -23,7 +23,7 @@ class ApiService {
   static String apiKey = dotenv.env['API_KEY_PEXELS']!;
   static String pixabayKey = dotenv.env['API_KEY_PIXABAY']!;
 
-  static const baseUrl = "192.168.100.122:2020";
+  static const baseUrl = "http://192.168.100.122:2020/api";
 
   var client = http.Client();
 
@@ -170,5 +170,96 @@ class ApiService {
       debugPrint(e.toString());
     }
     return imageList;
+  }
+
+  // my api
+  Future signup({
+    required String firstname,
+    required String lastname,
+    required String email,
+    required String password,
+    required List<String> roles,
+  }) async {
+    var url = Uri.parse('$baseUrl/auth/signup');
+    var body = {
+      "firstname": firstname,
+      "lastname": lastname,
+      "email": email,
+      "password": password,
+      "roles": ["admin", "moderator"]
+    };
+    try {
+      var response = await client.post(
+        url,
+        headers: {
+          'Content-Type': 'application/json', // Add this line
+        },
+        body: jsonEncode(body),
+      );
+      dynamic parsed;
+      if (response.statusCode == 200) {
+        return jsonDecode(response.body);
+      } else {
+        print(response.body);
+        return {"status": "Error"};
+      }
+    } catch (e) {
+      print("${e.toString()}");
+    }
+  }
+
+  Future publicApi() async {
+    var url = Uri.parse('$baseUrl/test/all');
+    try {
+      var response = await client.get(
+        url,
+      );
+      if (response.statusCode == 200) {
+        return {"status": "Success"};
+      } else {
+        return {"status": "failed"};
+      }
+    } catch (e) {
+      //
+    }
+  }
+
+  Future testUser() async {
+    var url = Uri.parse('$baseUrl/test/user');
+    try {
+      var response = await client.get(
+        url,
+      );
+      dynamic parsed;
+      try {
+        parsed = json.decode(response.body);
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
+      }
+    } catch (e) {
+      //
+    }
+  }
+
+  Future login(user) async {
+    var url = Uri.parse('$baseUrl/auth/signin');
+    try {
+      var response = await client.post(
+        url,
+        body: user,
+      );
+      dynamic parsed;
+      try {
+        parsed = json.decode(response.body);
+      } catch (e) {
+        if (kDebugMode) {
+          print(e.toString());
+        }
+      }
+    } catch (e) {
+      //
+    }
   }
 }

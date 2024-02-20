@@ -19,7 +19,9 @@ class LoginView extends StackedView<StartupViewModel> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            viewModel.onPressed("back");
+          },
           icon: const Icon(Icons.keyboard_backspace_outlined),
           color: Colors.black,
         ),
