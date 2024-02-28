@@ -40,7 +40,6 @@ widget Home = Scaffold(
     child: Padding(
       padding: [9.0],
       child: Column(
-        crossAxisAlignment: start,
         children: [
           Text(
             text: 'Hello',
