@@ -4,10 +4,6 @@ import core.material;
 widget Home = Scaffold(
   appBar: AppBar(
     elevation: 0,
-    backgroundColor: Colors.white,
-    iconTheme: const IconThemeData(
-      color: Colors.black,
-    ),
     actions: [
       Padding(
         padding: const EdgeInsets.all(8.0),
@@ -17,7 +13,6 @@ widget Home = Scaffold(
             width: 25,
             height: 25,
             decoration: const BoxDecoration(
-              shape: BoxShape.circle,
               color: Color(0xFFF5F6FA),
             ),
             child: const Padding(
@@ -25,7 +20,6 @@ widget Home = Scaffold(
               child: Icon(
                 Icons.shopping_cart,
                 size: 20,
-                color: Colors.black,
               ),
             ),
           ),
@@ -45,7 +39,6 @@ widget Home = Scaffold(
               color: Color(0xFF1D1E20),
               fontSize: 28,
               fontFamily: 'Inter',
-              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 5),
@@ -66,8 +59,7 @@ widget Home = Scaffold(
                     filled: true,
                     fillColor: const Color(0xFFF5F6FA),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
+                   
                     ),
                     contentPadding: const EdgeInsets.all(15),
                     hintText: 'Search...',
@@ -75,7 +67,6 @@ widget Home = Scaffold(
                       color: Color(0xFF8F959E),
                       fontSize: 15,
                       fontFamily: 'Inter',
-                      fontWeight: FontWeight.w400,
                     ),
                     prefixIcon: const Icon(
                       Icons.search,
