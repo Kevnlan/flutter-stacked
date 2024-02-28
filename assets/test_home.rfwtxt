@@ -56,6 +56,8 @@ widget Home = Scaffold(
               fontSize: 15,
             },
           ),
+          Row(
+            children: [
               Container(
                 width: 50,
                 height: 50,
@@ -78,6 +80,10 @@ widget Home = Scaffold(
                   },
                 },
               ),
+            ],
+          ),
+          Row(
+            children: [
               Text(
                 text: 'Choose Brand',
                 style: {
@@ -91,7 +97,9 @@ widget Home = Scaffold(
                   color: 0xFF8F959E,
                   fontSize: 13,
                 }
-              ),
+              )
+            ],
+          ),
         ],
       ),
     ),
