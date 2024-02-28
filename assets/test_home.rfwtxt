@@ -28,9 +28,7 @@ widget Home = Scaffold(
               padding: [4.0],
               child: Icon(
                 icon: 0xE8CC, 
-                fontFamily: "MaterialIcons",
-                size: 20,
-                color: 0xFF000000,
+                fontFamily: "MaterialIcons"
               ),
             ),
           ),
