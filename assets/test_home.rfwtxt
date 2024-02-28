@@ -2,12 +2,12 @@ import core.widgets;
 import core.material;
 
 widget Home = Scaffold(
-  backgroundColor: 0xFFFFFFFF
+  backgroundColor: 0xFFFFFFFF,
   appBar: AppBar(
     elevation: 0,
-    backgroundColor: 0xFFFFFFFF
+    backgroundColor: 0xFFFFFFFF,
     iconTheme: IconThemeData(
-      color:  0xFF000000,
+      color: 0xFF000000,
     ),
     actions: [
       Padding(
@@ -19,7 +19,7 @@ widget Home = Scaffold(
             height: 25,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: 0xFFF5F6FA
+              color: 0xFFF5F6FA,
             ),
             child: const Padding(
               padding: EdgeInsets.all(4.0),
@@ -40,18 +40,20 @@ widget Home = Scaffold(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Text(
-           text: 'Hello',
+          Text(
+            text: 'Hello',
             style: {
-                  color: 0xFF1D1E20
+              color: 0xFF1D1E20,
               fontSize: 28,
             },
           ),
-           SizedBox(height: 5),
-           Text(
+          SizedBox(height: 5),
+          Text(
             text: 'Welcome to Flystore.',
-            style:{color: 0xFF8F959E
-              fontSize: 15,},
+            style: {
+              color: 0xFF8F959E,
+              fontSize: 15,
+            },
           ),
           Row(
             children: [
@@ -62,39 +64,37 @@ widget Home = Scaffold(
                 decoration: {
                   type: "shape",
                   shape: {
-                    type: "linear"
+                    type: "linear",
                   },
-                        gradient: {
-        type: "linear",
-        begin: { x: 0.00,  y: -1.00},
-        end: { x: 0.0, y: 1.0 },
-        colors: [0xFFFF971E, 0xFFFF7043],
-        stops: [ 0.0, 1.0 ],
-        tileMode: "mirror",
-      },
-            shadows: switch state.down {
-        false: [ { blurRadius: 4.0, spreadRadius: 0.5, offset: { x: 1.0, y: 1.0, } } ],
-        default: [],
-      },
-                }
-                
-
+                  gradient: {
+                    type: "linear",
+                    begin: { x: 0.00,  y: -1.00},
+                    end: { x: 0.0, y: 1.0 },
+                    colors: [0xFFFF971E, 0xFFFF7043],
+                    stops: [ 0.0, 1.0 ],
+                    tileMode: "mirror",
+                  },
+                  shadows: switch state.down {
+                    false: [ { blurRadius: 4.0, spreadRadius: 0.5, offset: { x: 1.0, y: 1.0, } } ],
+                    default: [],
+                  },
+                },
               ),
             ],
           ),
-          const Row(
+          Row(
             children: [
               Text(
-               text: 'Choose Brand',
+                text: 'Choose Brand',
                 style: {
-                  color:0xFF1D1E20
+                  color: 0xFF1D1E20,
                   fontSize: 17,
                 }
               ),
               Text(
                 text: 'View All',
                 style: {
-                  color:0xFF8F959E
+                  color: 0xFF8F959E,
                   fontSize: 13,
                 }
               )
