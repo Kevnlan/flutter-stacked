@@ -57,6 +57,42 @@ widget Home = Scaffold(
             },
           ),
           SizedBox(height: 5),
+          Container(
+            width: 50,
+            height: 50,
+            decoration: {
+              type: "shape",
+              shape: {
+                type: "linear",
+              },
+              gradient: {
+                type: "linear",
+                begin: { x: 0.00,  y: -1.00},
+                end: { x: 0.0, y: 1.0 },
+                colors: [0xFFFF971E, 0xFFFF7043],
+                stops: [ 0.0, 1.0 ],
+                tileMode: "mirror",
+              },
+              shadows: switch state.down {
+                false: [{ blurRadius: 4.0, spreadRadius: 0.5, offset: { x: 1.0, y: 1.0 } }],
+                default: [],
+              },
+            },
+          ),
+          Text(
+            text: 'Choose Brand',
+            style: {
+              color: 0xFF1D1E20,
+              fontSize: 17,
+            }
+          ),
+          Text(
+            text: 'View All',
+            style: {
+              color: 0xFF8F959E,
+              fontSize: 13,
+            }
+          )
         ],
       ),
     ),
