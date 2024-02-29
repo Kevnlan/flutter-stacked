@@ -17,7 +17,7 @@ widget Home = Scaffold(
       color: 0xFF000000,
     ),
     leading: GestureDetector(
-        onTap: event 'test'{},
+        onTap: event 'backnav'{},
         child: Icon (
         icon: 0xE093,
          color: 0xFF000000,
@@ -28,7 +28,7 @@ widget Home = Scaffold(
     Padding(
       padding: [8.0],
       child: GestureDetector(
-        onTap: event 'test'{},
+        onTap: event 'newthing'{},
         child: Container(
           width: 25,
           height: 25,
@@ -43,7 +43,7 @@ widget Home = Scaffold(
             padding: [4.0],
             child: Icon(
               color: 0xFF000000,
-              icon: 0xE8CC,
+              icon: 0xE59C,
               fontFamily: "MaterialIcons"
             ),
           ),
