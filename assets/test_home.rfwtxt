@@ -39,7 +39,7 @@ widget Home = Scaffold(
   body: SafeArea(
     child: Padding(
       padding: [9.0],
-      child: Columnsz(
+      child: Column(
         children: [
           Text(
             text: 'Hello',
@@ -57,20 +57,6 @@ widget Home = Scaffold(
             },
           ),
           SizedBox(height: 5),
-           Text(
-                text: 'Choose Brand',
-                style: {
-                  color: 0xFF1D1E20,
-                  fontSize: 17,
-                }
-              ),
-              Text(
-                text: 'View All',
-                style: {
-                  color: 0xFF8F959E,
-                  fontSize: 13,
-                }
-              ),
         ],
       ),
     ),
