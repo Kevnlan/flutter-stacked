@@ -18,7 +18,7 @@ widget Home = Scaffold(
     ),
     leading: GestureDetector(
         onTap: event 'test'{},
-        child: Icon: (
+        child: Icon (
         icon: 0xE093,
          color: 0xFF000000,
          fontFamily: "MaterialIcons"
