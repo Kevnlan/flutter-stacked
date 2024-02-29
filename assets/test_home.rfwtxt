@@ -60,7 +60,7 @@ widget Home = Scaffold(
         SearchRow(
           children: [
            Expanded(
-            child:  TextField(),
+            child:  SearchTextField(),
            ),
           Container(
             width: 50,
