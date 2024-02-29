@@ -65,7 +65,8 @@ widget Home = Scaffold(
                 decoration: {
                   type: "shape",
                   shape: {
-                    type: "linear",
+                    type: "stadium",
+                    side: { width: 1.0 },
                   },
                   gradient: {
                     type: "linear",
