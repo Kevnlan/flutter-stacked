@@ -7,8 +7,21 @@ widget Home = Scaffold(
   appBar: AppBar(
     elevation: [0.0],
     backgroundColor: 0xFFFFFFFF,
+                  title: const Text(
+               text: 'RFW Example',
+                style:{
+                  color: 0xFF000000,
+                },
+              ),
     iconTheme: IconThemeData(
       color: 0xFF000000,
+    ),
+    leading: IconButton(
+      Icon: (
+        icon: 0xE093,
+         color: 0xFF000000,
+         fontFamily: "MaterialIcons"
+      )
     ),
     actions: [
     Padding(
