@@ -2,55 +2,69 @@ import local;
 import core.widgets;
 import core.material;
 
+widget GameList = ListView(
+  children: [
+    ...for game in args.games: 
+      ListTile(
+        title: Text(text: game.name),
+        subtitle: Text(text: ["Rating: ", game.rating]),
+        onTap: event 'gameSelect' {
+          id: game.id,
+          link: game.link
+        }
+      )
+  ]
+);
+
 widget Home = Scaffold(
   backgroundColor: 0xFFFFFFFF,
   appBar: AppBar(
     elevation: [0.0],
     backgroundColor: 0xFFFFFFFF,
-                  title: Text(
-               text: 'RFW Example',
-                style:{
-                  color: 0xFF000000,
-                },
-              ),
+    title: Text(
+      text: 'RFW Example',
+      style:{
+        color: 0xFF000000,
+      },
+    ),
     iconTheme: IconThemeData(
       color: 0xFF000000,
     ),
     leading: GestureDetector(
-        onTap: event 'backnav'{},
-        child: Icon (
+      onTap: event 'backnav'{},
+      child: Icon (
         icon: 0xE093,
-         color: 0xFF000000,
-         fontFamily: "MaterialIcons"
+        color: 0xFF000000,
+        fontFamily: "MaterialIcons"
       )
     ),
     actions: [
-    Padding(
-      padding: [8.0],
-      child: GestureDetector(
-        onTap: event 'newthing'{},
-        child: Container(
-          width: 25,
-          height: 25,
-          decoration: {
-          type: "shape",
-          shape: {
-            type: "circle",
-          },
-          color: 0xFFF5F6FA,
-        },
-          child: Padding(
-            padding: [4.0],
-            child: Icon(
-              color: 0xFF000000,
-              icon: 0xE59C,
-              fontFamily: "MaterialIcons"
+      Padding(
+        padding: [8.0],
+        child: GestureDetector(
+          onTap: event 'newthing'{},
+          child: Container(
+            width: 25,
+            height: 25,
+            decoration: {
+              type: "shape",
+              shape: {
+                type: "circle",
+              },
+              color: 0xFFF5F6FA,
+            },
+            child: Padding(
+              padding: [4.0],
+              child: Icon(
+                color: 0xFF000000,
+                icon: 0xE59C,
+                fontFamily: "MaterialIcons"
+              ),
             ),
           ),
         ),
-      ),
-    )
-  ],
+      )
+    ],
   ),
   body: SafeArea(
     child: Padding(
@@ -58,62 +72,64 @@ widget Home = Scaffold(
       child: BodyColumn(
         mainAxisAlignment: "start",
         children: [
-        Text(
-          text: 'Hello',
-          style: {
-          color: 0xFF1D1E20,
-          fontSize: 28,
-        },
-        ),
-        SizedBox(height: 5),
-        Text(
-          text: 'Welcome to Flystore.',
-          style: {
-          color: 0xFF8F959E,
-          fontSize: 15,
-          fontWeight: "bold"
-        },
-        ),
-         SizedBox(height: 10),
-        SearchRow(
-          children: [
-           Expanded(child: SearchTextField(),),
-           SizedBox(width: 5),
-          Container(
-            width: 50,
-            height: 50,
-            decoration: {
-            type: "shape",
-            shape: {
-              type: "circle",
+          Text(
+            text: 'Hello',
+            style: {
+              color: 0xFF1D1E20,
+              fontSize: 28,
             },
-            color: 0xFFFF7043,
-          },
           ),
-        ],
-        ),
-       SizedBox(height: 10),
-        BrandRow(
-          mainAxisAlignment: "spaceBetween",
-          children: [
+          SizedBox(height: 5),
           Text(
-            text: 'Choose Brand',
+            text: 'Welcome to Flystore.',
             style: {
-            color: 0xFF1D1E20,
-            fontSize: 17,
+              color: 0xFF8F959E,
+              fontSize: 15,
               fontWeight: "bold"
-          }
+            },
           ),
-          Text(
-            text: 'View All',
-            style: {
-            color: 0xFF8F959E,
-            fontSize: 13,
-          }
+          SizedBox(height: 10),
+          SearchRow(
+            children: [
+              Expanded(child: SearchTextField(),),
+              SizedBox(width: 5),
+              Container(
+                width: 50,
+                height: 50,
+                decoration: {
+                  type: "shape",
+                  shape: {
+                    type: "circle",
+                  },
+                  color: 0xFFFF7043,
+                },
+              ),
+            ],
           ),
+          SizedBox(height: 10),
+          BrandRow(
+            mainAxisAlignment: "spaceBetween",
+            children: [
+              Text(
+                text: 'Choose Brand',
+                style: {
+                  color: 0xFF1D1E20,
+                  fontSize: 17,
+                  fontWeight: "bold"
+                }
+              ),
+              Text(
+                text: 'View All',
+                style: {
+                  color: 0xFF8F959E,
+                  fontSize: 13,
+                }
+              ),
+            ],
+          ),
+          SizedBox(height: 10),
+          GameList(games: data.games),
         ],
-        ),
-      ],
       ),
     ),
   ),
