@@ -128,7 +128,7 @@ widget Home = Scaffold(
             ],
           ),
           SizedBox(height: 10),
-          GameList(games: data.games),
+          Expanded(child: GameList(games: data.games)),
         ],
       ),
     ),
