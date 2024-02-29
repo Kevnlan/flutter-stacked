@@ -5,7 +5,7 @@ import core.material;
 widget Home = Scaffold(
   backgroundColor: 0xFFFFFFFF,
   appBar: AppBar(
-    elevation: 0,
+    elevation: [0.0],
     backgroundColor: 0xFFFFFFFF,
     iconTheme: IconThemeData(
       color: 0xFF000000,
@@ -40,7 +40,7 @@ widget Home = Scaffold(
   body: SafeArea(
     child: Padding(
       padding: [9.0],
-      child: Column(
+      child: BodyColumn(
         children: [
         Text(
           text: 'Hello',
@@ -57,8 +57,11 @@ widget Home = Scaffold(
           fontSize: 15,
         },
         ),
-        Row(
+        SearchRow(
           children: [
+           Expanded(
+            child:  TextField(),
+           ),
           Container(
             width: 50,
             height: 50,
@@ -67,12 +70,12 @@ widget Home = Scaffold(
             shape: {
               type: "circle",
             },
-            color: 0xFFF5F6FA,
+            color: 0xFFFF7043,
           },
           ),
         ],
         ),
-        Row(
+        BrandRow(
           children: [
           Text(
             text: 'Choose Brand',
