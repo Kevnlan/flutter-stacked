@@ -13,14 +13,16 @@ widget GameGrid = GridView(
     ...for attire in args.attires: 
       GestureDetector(
         onTap: event 'attireSelect' {
-          id: attire.id,
-          link: attire.link
+          name: attire.name,
+          amount: attire.amount,
+          image: attire.image_url
         },
         child: Container(
           decoration: {
             type:"box",
           },
           child: Column(
+            crossAxisAlignment: "start",
             children: [
               Text(text: ["Name: ", attire.name]),
               Text(text: ["Amount: ", attire.amount]),
