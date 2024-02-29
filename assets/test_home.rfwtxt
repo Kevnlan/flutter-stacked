@@ -19,7 +19,7 @@ widget GameGrid = GridView(
         child: Container(
           decoration: {
             type:"box",
-          }
+          },
           child: Column(
             children: [
               Text(text: attire.name),
