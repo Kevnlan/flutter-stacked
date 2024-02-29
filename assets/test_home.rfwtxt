@@ -1,3 +1,4 @@
+import local;
 import core.widgets;
 import core.material;
 
@@ -10,79 +11,86 @@ widget Home = Scaffold(
       color: 0xFF000000,
     ),
     actions: [
-      Padding(
-        padding: [8.0],
-        child: GestureDetector(
-          onTap: event 'test'{ },
-          child: Container(
-            width: 25,
-            height: 25,
-            decoration: {
-              type: "shape",
-              shape: {
-                type: "circle",
-              },
-              color: 0xFFF5F6FA,
-            },
-            child: Padding(
-              padding: [4.0],
-              child: Icon(
-                icon: 0xE8CC, 
-                fontFamily: "MaterialIcons"
-              ),
+    Padding(
+      padding: [8.0],
+      child: GestureDetector(
+        onTap: event 'test'{},
+        child: Container(
+          width: 25,
+          height: 25,
+          decoration: {
+          type: "shape",
+          shape: {
+            type: "circle",
+          },
+          color: 0xFFF5F6FA,
+        },
+          child: Padding(
+            padding: [4.0],
+            child: Icon(
+              icon: 0xE8CC,
+              fontFamily: "MaterialIcons"
             ),
           ),
         ),
-      )
-    ],
+      ),
+    )
+  ],
   ),
   body: SafeArea(
     child: Padding(
       padding: [9.0],
       child: Column(
         children: [
-          Text(
-            text: 'Hello',
-            style: {
-              color: 0xFF1D1E20,
-              fontSize: 28,
-            },
-          ),
-          SizedBox(height: 5),
-          Text(
-            text: 'Welcome to Flystore.',
-            style: {
-              color: 0xFF8F959E,
-              fontSize: 15,
-            },
-          ),
-          SizedBox(height: 5),
+        Text(
+          text: 'Hello',
+          style: {
+          color: 0xFF1D1E20,
+          fontSize: 28,
+        },
+        ),
+        SizedBox(height: 5),
+        Text(
+          text: 'Welcome to Flystore.',
+          style: {
+          color: 0xFF8F959E,
+          fontSize: 15,
+        },
+        ),
+        Row(
+          children: [
           Container(
             width: 50,
             height: 50,
             decoration: {
-              type: "shape",
-              shape: {
-                type: "circle",
-              },
-              color: 0xFFF5F6FA,
+            type: "shape",
+            shape: {
+              type: "circle",
             },
+            color: 0xFFF5F6FA,
+          },
           ),
+        ],
+        ),
+        Row(
+          children: [
           Text(
             text: 'Choose Brand',
             style: {
-              color: 0xFF1D1E20,
-              fontSize: 17,
-            }
+            color: 0xFF1D1E20,
+            fontSize: 17,
+          }
           ),
           Text(
             text: 'View All',
             style: {
-              color: 0xFF8F959E,
-              fontSize: 13,
-            }
-          )
+            color: 0xFF8F959E,
+            fontSize: 13,
+          }
+          ),
         ],
+        ),
+      ],
       ),
     ),
   ),
