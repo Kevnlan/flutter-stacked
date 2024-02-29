@@ -28,6 +28,7 @@ widget Home = Scaffold(
           child: Padding(
             padding: [4.0],
             child: Icon(
+              color: 0xFF000000,
               icon: 0xE8CC,
               fontFamily: "MaterialIcons"
             ),
@@ -41,6 +42,7 @@ widget Home = Scaffold(
     child: Padding(
       padding: [9.0],
       child: BodyColumn(
+        mainAxisAlignment: "start",
         children: [
         Text(
           text: 'Hello',
@@ -55,6 +57,7 @@ widget Home = Scaffold(
           style: {
           color: 0xFF8F959E,
           fontSize: 15,
+          fontWeight: "bold"
         },
         ),
          SizedBox(height: 10),
@@ -77,12 +80,14 @@ widget Home = Scaffold(
         ),
        SizedBox(height: 10),
         BrandRow(
+          mainAxisAlignment: "spaceBetween",
           children: [
           Text(
             text: 'Choose Brand',
             style: {
             color: 0xFF1D1E20,
             fontSize: 17,
+              fontWeight: "bold"
           }
           ),
           Text(
