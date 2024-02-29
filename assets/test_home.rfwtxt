@@ -101,7 +101,7 @@ widget Home = Scaffold(
   ),
   body: SafeArea(
     child: Padding(
-      padding: [9.0],
+      padding: [24.0],
       child: ListView(
         children: [
           Text(
@@ -163,6 +163,7 @@ widget Home = Scaffold(
           SizedBox(height: 300, child: GameList(games: data.games)),
           SizedBox(height: 10),
           SizedBox(height: 300, child: GameGrid(attires: data.attires)),
+          SizedBox(height: 30),
         ],
       ),
     ),
