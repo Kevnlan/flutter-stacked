@@ -22,8 +22,9 @@ widget GameGrid = GridView(
           },
           child: Column(
             children: [
-              Text(text: attire.name),
-              Text(text: ["Logo: ", attire.logo_url]),
+              Text(text: ["Name: ", attire.name]),
+              Text(text: ["Amount: ", attire.amount]),
+              Text(text: ["Image: ", attire.image_url]),
             ],
           ),
         ),
@@ -156,11 +157,10 @@ widget Home = Scaffold(
               ),
             ],
           ),
-            SizedBox(height: 10),
-           SizedBox(height: 300, child: GameList(games: data.games)),
           SizedBox(height: 10),
-           SizedBox(height: 300, child: GameGrid(games: data.games)),
-
+          SizedBox(height: 300, child: GameList(games: data.games)),
+          SizedBox(height: 10),
+          SizedBox(height: 300, child: GameGrid(attires: data.attires)),
         ],
       ),
     ),
