@@ -57,11 +57,11 @@ widget Home = Scaffold(
           fontSize: 15,
         },
         ),
-         verticalSpaceSmall,
+         SizedBox(height: 10),
         SearchRow(
           children: [
            SearchTextField(),
-           horizontalSpaceTiny,
+           SizedBox(width: 5),
           Container(
             width: 50,
             height: 50,
@@ -75,7 +75,7 @@ widget Home = Scaffold(
           ),
         ],
         ),
-         verticalSpaceSmall,
+       SizedBox(height: 10),
         BrandRow(
           children: [
           Text(
