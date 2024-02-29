@@ -7,7 +7,7 @@ widget Home = Scaffold(
   appBar: AppBar(
     elevation: [0.0],
     backgroundColor: 0xFFFFFFFF,
-                  title: const Text(
+                  title: Text(
                text: 'RFW Example',
                 style:{
                   color: 0xFF000000,
