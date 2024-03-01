@@ -1,16 +1,16 @@
-import local;
-import core.widgets;
-import core.material;
+import 'local';
+import 'core/widgets';
+import 'core/material';
 
 widget GameGrid = GridView(
-   shrinkWrap: true,
+  shrinkWrap: true,
   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
     crossAxisCount: 2,
     crossAxisSpacing: 5.0,
     childAspectRatio: 0.7,
   ),
   children: [
-    ...for attire in args.attires: 
+    for (attire in args.attires)
       GestureDetector(
         onTap: event 'attireSelect' {
           name: attire.name,
@@ -19,44 +19,56 @@ widget GameGrid = GridView(
         },
         child: Container(
           decoration: {
-            type:"box",
+            type: "box",
           },
           child: Column(
             crossAxisAlignment: "start",
             children: [
-              Text(text: ["Name: ", attire.name]),
-              Text(text: ["Amount: ", attire.amount]),
-              Text(text: ["Image: ", attire.image_url]),
+              ContainerBox(image_url: attire.image_url),
+              Text(
+                text: ["Name: ", attire.name],
+                style: {
+                  color: 0xFF1D1E20,
+                  fontSize: 11,
+                },
+              ),
+              Text(
+                text: ["Amount: ", attire.amount],
+                style: {
+                  color: 0xFF1D1E20,
+                  fontSize: 13,
+                },
+              ),
             ],
           ),
         ),
-      )
-  ]
+      ),
+  ],
 );
 
 widget GameList = ListView(
   shrinkWrap: true,
   children: [
-    ...for game in args.games: 
+    for (game in args.games)
       ListTile(
         title: Text(text: game.name),
         subtitle: Text(text: ["Rating: ", game.rating]),
         onTap: event 'gameSelect' {
           id: game.id,
           link: game.link
-        }
-      )
-  ]
+        },
+      ),
+  ],
 );
 
 widget Home = Scaffold(
   backgroundColor: 0xFFFFFFFF,
   appBar: AppBar(
-    elevation: [0.0],
+    elevation: 0.0,
     backgroundColor: 0xFFFFFFFF,
     title: Text(
       text: 'RFW Example',
-      style:{
+      style: {
         color: 0xFF000000,
       },
     ),
@@ -65,15 +77,15 @@ widget Home = Scaffold(
     ),
     leading: GestureDetector(
       onTap: event 'backnav'{},
-      child: Icon (
+      child: Icon(
         icon: 0xE093,
         color: 0xFF000000,
-        fontFamily: "MaterialIcons"
-      )
+        fontFamily: "MaterialIcons",
+      ),
     ),
     actions: [
       Padding(
-        padding: [8.0],
+        padding: 8.0,
         child: GestureDetector(
           onTap: event 'newthing'{},
           child: Container(
@@ -87,87 +99,89 @@ widget Home = Scaffold(
               color: 0xFFF5F6FA,
             },
             child: Padding(
-              padding: [4.0],
+              padding: 4.0,
               child: Icon(
                 color: 0xFF000000,
                 icon: 0xE59C,
-                fontFamily: "MaterialIcons"
+                fontFamily: "MaterialIcons",
               ),
             ),
           ),
         ),
-      )
+      ),
     ],
   ),
   body: SafeArea(
     child: SingleChildScrollView(
       child: Padding(
-      padding: [24.0],
-      child: Column(
-        crossAxisAlignment: "start",
-        children: [
-          Text(
-            text: 'Hello',
-            style: {
-              color: 0xFF1D1E20,
-              fontSize: 28,
-            },
-          ),
-          SizedBox(height: 5),
-          Text(
-            text: 'Welcome to Flystore.',
-            style: {
-              color: 0xFF8F959E,
-              fontSize: 15,
-              fontWeight: "bold"
-            },
-          ),
-          SizedBox(height: 10),
-          SearchRow(
-            children: [
-              Expanded(child: SearchTextField(),),
-              SizedBox(width: 5),
-              Container(
-                width: 50,
-                height: 50,
-                decoration: {
-                  type: "shape",
-                  shape: {
-                    type: "circle",
+        padding: 24.0,
+        child: Column(
+          crossAxisAlignment: "start",
+          children: [
+            Text(
+              text: 'Hello',
+              style: {
+                color: 0xFF1D1E20,
+                fontSize: 28,
+              },
+            ),
+            SizedBox(height: 5),
+            Text(
+              text: 'Welcome to Flystore.',
+              style: {
+                color: 0xFF8F959E,
+                fontSize: 15,
+                fontWeight: "bold",
+              },
+            ),
+            SizedBox(height: 10),
+            SearchRow(
+              children: [
+                Expanded(
+                  child: SearchTextField(),
+                ),
+                SizedBox(width: 5),
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: {
+                    type: "shape",
+                    shape: {
+                      type: "circle",
+                    },
+                    color: 0xFFFF7043,
                   },
-                  color: 0xFFFF7043,
-                },
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          BrandRow(
-            mainAxisAlignment: "spaceBetween",
-            children: [
-              Text(
-                text: 'Choose Brand',
-                style: {
-                  color: 0xFF1D1E20,
-                  fontSize: 17,
-                  fontWeight: "bold"
-                }
-              ),
-              Text(
-                text: 'View All',
-                style: {
-                  color: 0xFF8F959E,
-                  fontSize: 13,
-                }
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
-          SizedBox(height: 300, child: GameList(games: data.games)),
-          SizedBox(height: 10),
-          SizedBox(height: 300, child: GameGrid(attires: data.attires)),
-        ],
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            BrandRow(
+              mainAxisAlignment: "spaceBetween",
+              children: [
+                Text(
+                  text: 'Choose Brand',
+                  style: {
+                    color: 0xFF1D1E20,
+                    fontSize: 17,
+                    fontWeight: "bold",
+                  },
+                ),
+                Text(
+                  text: 'View All',
+                  style: {
+                    color: 0xFF8F959E,
+                    fontSize: 13,
+                  },
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            SizedBox(height: 300, child: GameList(games: data.games)),
+            SizedBox(height: 10),
+            SizedBox(height: 300, child: GameGrid(attires: data.attires)),
+          ],
+        ),
       ),
     ),
-    )
   ),
 );
