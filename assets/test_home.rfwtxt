@@ -10,7 +10,7 @@ widget GameGrid = GridView(
     childAspectRatio: 0.7,
   ),
   children: [
-    for (attire in args.attires)
+    ...for (attire in args.attires)
       GestureDetector(
         onTap: event 'attireSelect' {
           name: attire.name,
