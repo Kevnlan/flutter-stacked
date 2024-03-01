@@ -10,7 +10,7 @@ widget GameGrid = GridView(
     childAspectRatio: 0.7,
   ),
   children: [
-    ...for attire in args.attires
+    ...for attire in args.attires:
       GestureDetector(
         onTap: event 'attireSelect' {
           name: attire.name,
@@ -49,7 +49,7 @@ widget GameGrid = GridView(
 widget GameList = ListView(
   shrinkWrap: true,
   children: [
-    ...for game in args.games
+    ...for game in args.games:
       ListTile(
         title: Text(text: game.name),
         subtitle: Text(text: ["Rating: ", game.rating]),
